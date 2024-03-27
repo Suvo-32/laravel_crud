@@ -69,8 +69,17 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
+        <!-- <label for="role">Role:</label>
+        <input type="text" id="role" name="role" required> -->
+
         <label for="role">Role:</label>
-        <input type="text" id="role" name="role" required>
+        <select id="role" name="role" required>
+            <!-- <option value="">Select</option> -->
+            <option value="Backend">Backend</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Analyst">Analyst</option>
+            <!-- <option value="AB">AB</option> -->
+        </select>
 
         <label for="blood_group">Blood Group:</label>
         <select id="blood_group" name="blood_group" required>
@@ -86,6 +95,13 @@
             <option value="">Select</option>
             <option value="+">+</option>
             <option value="-">-</option>
+        </select>
+
+        <label for="rh">Employee Type</label>
+        <select id="employee" name="employee" required>
+            <!-- <option value="">Select</option> -->
+            <option value="admin">admin</option>
+            <option value="normal">normal</option>
         </select>
 
         <label for="password">Password:</label>

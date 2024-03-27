@@ -40,6 +40,7 @@ $message = session('message');
         <div>
             <a href="{{ route('employees.create') }}" class="btn btn-primary">Add New Employee</a>
             <a href="{{ url('employees/employees') }}" class="btn btn-primary">Display Employees</a>
+            <a href="{{ url('chat') }}" class="btn btn-primary">Employees Chat</a>
         </div>
     </div>
 </div>

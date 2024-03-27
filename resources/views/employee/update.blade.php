@@ -73,8 +73,17 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" value="{{$employee->email}}" required>
 
+        <!-- <label for="role">Role:</label>
+        <input type="text" id="role" name="role" value="{{$employee->role}}" required> -->
+
         <label for="role">Role:</label>
-        <input type="text" id="role" name="role" value="{{$employee->role}}" required>
+        <select id="role" name="role" required>
+            <!-- <option value="">Select</option> -->
+            <option value="Backend" {{($employee['role']=="Backend")?'selected':''}}>Backend</option>
+            <option value="Frontend" {{($employee['role']=="Frontend")?'selected':''}}>Frontend</option>
+            <option value="Analyst" {{($employee['role']=="Analyst")?'selected':''}}>Analyst</option>
+            <!-- <option value="AB">AB</option> -->
+        </select>
 
         <label for="blood_group">Blood Group:</label>
         <select id="blood_group" name="blood_group"  required>
@@ -93,7 +102,7 @@
         </select>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" value="{{$employee->password}}" required>
+        <input type="password" id="password" name="password" required>
 
         <input type="submit" value="Submit">
     </form>

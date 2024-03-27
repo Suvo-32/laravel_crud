@@ -13,6 +13,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+
+        // dd('hello');
         // $employee = Employee::all();
         return view('welcome');  
     }
@@ -31,6 +33,8 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
         $data = Employee::create([
             "name" => $request->name,
             "email" => $request->email,
@@ -44,6 +48,7 @@ class EmployeeController extends Controller
             "name" => $request->name,
             "email" => $request->email,
             "password" => Hash::make($request->password), // Hash the password
+            "employee" =>$request->employee
         ]);
     
         return redirect('/employees')->with('message', "Data inserted successfully");

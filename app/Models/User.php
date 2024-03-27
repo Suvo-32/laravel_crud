@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'employee',
     ];
 
     /**
@@ -42,4 +43,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function system(){
+        return $this->hasOne(System::class,'users_id','id'); //one to one
+
+        // return $this->hasMany(System::class,'users_id','id');
+    }
+
+    public function message(){
+        return $this->hasMany(Message::class,'users_id','id'); //one to one
+
+        // return $this->hasMany(System::class,'users_id','id');
+    }
 }

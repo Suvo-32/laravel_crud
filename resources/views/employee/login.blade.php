@@ -79,6 +79,14 @@ button:hover {
                 <input type="password" id="password" name="password" required>
             </div>
 
+            <div class="input-group">
+            <label for="employee-type">Employee Type</label>
+            <select id="employee-type" name="employee_type" required>
+                <option value="admin">Admin</option>
+                <option value="normal">Normal</option>
+            </select>
+        </div>
+
             <button type="submit">Login</button>
         </form>
     </div>

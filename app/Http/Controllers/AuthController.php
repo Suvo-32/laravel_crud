@@ -16,23 +16,27 @@ class AuthController extends Controller
     }
 
     public function UserCheck(Request $request){
-        //dd($request);
+
         $email = $request->email;
         $password = $request->password;
-        //dd($password);
-        //$userData=Employee::select('email','password')->where('name','nitai')->first();
-        //dd($userData);
-        // $user_email = $userData->email;
-        // $user_password = $userData->password;
-        // if($user_email == $email && $user_password == $password)
-        // {
-        //     dd('87654');
-        // }
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        $employee_type = $request->employee_type;
+      
+        if (Auth::attempt(['email' => $email, 'password' => $password ,])) {
          
+            $id = User::where('email', $email)->select('id')->first();
             $request->session()->put('user','login');
-            // $request->session()->put('user_expires_at', now()->addSeconds(60)); 
-            return redirect('/home');
+            $request->session()->put('email',$email);
+            $request->session()->put('users_id',$id);
+            // dd($request->all());
+            $emp_type = User::where('email', $email)->pluck('employee')->first();
+            // dd($emp_type);
+            if ($emp_type != 'normal') {
+                return redirect('/home');
+            }elseif($emp_type == 'normal' && $employee_type != 'normal'){
+                  return "Invalid credentials. Please try again.";
+            }else {
+                return "hello, normal";
+            }
         } else {
             return "Invalid credentials. Please try again.";
         }  
